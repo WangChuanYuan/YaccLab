@@ -11,7 +11,7 @@ public class GoTo {
 
     private int sid;
 
-    private String terminal;
+    private String nonTerminal;
 
     private int goTo;
 }

@@ -11,7 +11,7 @@ public class Action {
 
     private int sid;
 
-    private String nonTerminal;
+    private String terminal;
 
     private String action;
 }

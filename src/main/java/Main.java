@@ -1,4 +1,5 @@
 import cfg.CFG;
+import cfg.Production;
 import table.LRParsingTable;
 
 import java.io.BufferedReader;
@@ -6,6 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -42,5 +44,10 @@ public class Main {
         }
         CFG cfg = new CFG(start, productions, nonTerminals, terminals);
         LRParsingTable table = cfg.LRParsingTable();
+        String input = "b d a";
+        List<String> tokens = new ArrayList<>(Arrays.asList(input.split(" ")));
+        List<Production> reduces = table.parse(tokens);
+        for(Production production : reduces)
+            System.out.println(production.toString());
     }
 }

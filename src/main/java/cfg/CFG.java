@@ -119,7 +119,7 @@ public class CFG {
                 String nextSymbol = production.getRight().get(item.getDotPos());
                 if (nonTerminals.contains(nextSymbol)) {
                     List<String> beta = (item.getDotPos() == production.getRight().size() - 1) ? new ArrayList<>()
-                            : production.getRight().subList(item.getDotPos() + 1, production.getRight().size());
+                            : new ArrayList<>(production.getRight().subList(item.getDotPos() + 1, production.getRight().size()));
                     beta.add(item.getPredict());
                     for (Production pro : productions) {
                         if (pro.getLeft().equals(nextSymbol)) {
