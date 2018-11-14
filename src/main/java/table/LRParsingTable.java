@@ -71,10 +71,10 @@ public class LRParsingTable {
                 int i = 0;
                 while(i < pro.getRight().size()) {
                     symbolS.pop();
+                    stateS.pop();
                     i++;
                 }
                 symbolS.push(pro.getLeft());
-                stateS.pop();
                 Integer stateToGo = goTo(stateS.peek(), symbolS.peek());
                 stateS.push(stateToGo);
             }
