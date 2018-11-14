@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File(Main.class.getResource("CFG.y").getFile());
+        File file = new File(Main.class.getResource("CFG2.y").getFile());
         String start = null;
         List<String> nonTerminals = new ArrayList<>();
         List<String> terminals = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Main {
         }
         CFG cfg = new CFG(start, productions, nonTerminals, terminals);
         LRParsingTable table = cfg.LRParsingTable();
-        String input = "b d a";
+        String input = "i + i * i + ( i + i )";
         List<String> tokens = new ArrayList<>(Arrays.asList(input.split(" ")));
         List<Production> reduces = table.parse(tokens);
         for(Production production : reduces)

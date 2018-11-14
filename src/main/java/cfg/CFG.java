@@ -191,8 +191,9 @@ public class CFG {
                 if (isNewState) {
                     int nKid = kid++;
                     int nSid = sid++;
-                    kernels.add(new State(nKid, entry.getValue()));
-                    states.add(new State(nSid, entry.getValue()));
+                    // 注意不要用引用。。。很坑
+                    kernels.add(new State(nKid, new ArrayList<>(entry.getValue())));
+                    states.add(new State(nSid, new ArrayList<>(entry.getValue())));
                     if (nonTerminals.contains(entry.getKey()))
                         table.getGoTos().add(new GoTo(state.getId(), entry.getKey(), nSid));
                     else table.getActions().add(new Action(state.getId(), entry.getKey(), "s" + nSid));
