@@ -118,6 +118,7 @@ public class CFG {
             if (item.getDotPos() < production.getRight().size()) {
                 String nextSymbol = production.getRight().get(item.getDotPos());
                 if (nonTerminals.contains(nextSymbol)) {
+                    // subList 返回的是引用，我们需要一个新的对象
                     List<String> beta = (item.getDotPos() == production.getRight().size() - 1) ? new ArrayList<>()
                             : new ArrayList<>(production.getRight().subList(item.getDotPos() + 1, production.getRight().size()));
                     beta.add(item.getPredict());

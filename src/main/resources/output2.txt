@@ -1,0 +1,18 @@
+F -> i
+T -> F
+E -> T
+F -> i
+T -> F
+F -> i
+T -> T * F
+E -> E + T
+F -> i
+T -> F
+E -> T
+F -> i
+T -> F
+E -> E + T
+F -> ( E )
+T -> F
+E -> E + T
+E' -> E
